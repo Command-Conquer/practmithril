@@ -3,14 +3,25 @@ var m = require("mithril")
 var User = require("../models/User")
 
 module.exports = {
-    oninit: function(vnode) {User.load(vnode.attrs.id)}, //vnode.attrs.id será uno cuando recuperemos el primero
+    oninit: function(vnode) {User.load(vnode.attrs.id)},
     view: function() {
-        return m("form", [
+        return m("form", {
+            onsubmit: function(e) {
+                e.preventDefault()
+                User.save()
+            }
+        }, [
             m("label.label", "First name"),
-            m("input.input[type=text][placeholder=First name]", {value: User.current.firstName}),
+            m("input.input[type=text][placeholder=First name]", {
+                oninput: function (e) {User.current.firstName = e.target.value},
+                value: User.current.firstName
+            }),
             m("label.label", "Last name"),
-            m("input.input[placeholder=Last name]", {value: User.current.lastName}),
-            m("button.button[type=button]", "Save"),
+            m("input.input[placeholder=Last name]", {
+                oninput: function (e) {User.current.lastName = e.target.value}, //lo rellena con lo entrado
+                value: User.current.lastName
+            }),
+            m("button.button[type=submit]", "Save"),
         ])
     }
 }

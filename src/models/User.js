@@ -27,6 +27,16 @@ var User = {
             .then(function(result) {
                 User.current = result
             })
+    },
+
+
+    save: function() {
+        return m.request({
+            method: "PUT",
+            url: "https://rem-rest-api.herokuapp.com/api/users/" + User.current.id,
+            body: User.current,
+            withCredentials: true,
+        })
     }
 }
 
