@@ -15,6 +15,19 @@ var User = {
                 User.list = result.data
             })
     },
+
+    //recupera el user dependiendo del id
+    current: {},
+    load: function(id) {
+        return m.request({
+            method: "GET",
+            url: "https://rem-rest-api.herokuapp.com/api/users/" + id,
+            withCredentials: true,
+        })
+            .then(function(result) {
+                User.current = result
+            })
+    }
 }
 
 module.exports = User
