@@ -1,0 +1,26 @@
+{
+  "name": "practmith",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Command-Conquer/practmithril.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Command-Conquer/practmithril/issues"
+  },
+  "homepage": "https://github.com/Command-Conquer/practmithril#readme",
+  "dependencies": {
+    "mithril": "^2.0.4"
+  },
+  "devDependencies": {
+    "@types/mithril": "^2.0.2"
+  }
+}
